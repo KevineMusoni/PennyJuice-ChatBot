@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset ="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ChatBot</title>
+        <link href="styles.css" rel="stylesheet">
+        <script defer src="script.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <button data-modal-target="#modal">Chat</button>
+        <div class="modal" id="modal" style="font-family: 'Roboto', sans-serif;">
+            <div class="modal-header" style="background-color: #16a085; color: white;">
+                <div>
+                    <p class="title">Hi there  <img src="imgs/wave.png" id="hello"></p>
+                    <p style="color: rgb(233, 233, 233);";>Ask us anything or give us feedback. <br>We are always happy to hear from you...</p>
+                </div>
+                <br>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+
+            <div class="modal-body" style="background-color: rgb(233, 233, 233);">
+                <p><img src="imgs/bot.png" id="bot" alt="avatar">Hi! I'm Penny Juice Help Bot.</p>
+                <p style="font-weight: bold;"><img src="imgs/bot.png" id="bot" alt="avatar">...</p><p id="demo"></p>
+
+                <!--  -->
+                <!--  -->
+                
+                <input type="text" id="input" style="border-radius: 10px;" placeholder="">
+                <br>
+                <button type="button" 
+                onclick="myFunction()" class="submit-btn">send ></button>
+            </div>
+            <script> 
+                function myFunction() { 
+                    var x =  document.getElementById("input").value; 
+                    var error= "Sorry, I don't uderstand";
+                    var greeting= x.includes("hi");
+                    var greeting2= x.includes("hello");
+                    var choice_id = "choice";
+                    var val =["A","B","C"];
+                    
+                    if(x== ""){
+                     document.getElementById("demo").innerHTML = error;
+                     ;
+                    }
+                    else if(x== "hi"){
+                        document.getElementById("demo").innerHTML = "Hi, What is your name please?";
+                        
+                    }
+                    else if(x=="hello"){
+                        document.getElementById("demo").innerHTML = "Hello, What is your name please?";
+                    }
+                    else if(x.includes("recommend"||"type")){
+                        document.getElementById( 
+                      "demo").innerHTML = "Yes we have a couple of recommendations! Does your child have any allergies?(Yes/No)";
+                    }
+                    else if(x.includes("yes")){
+                        document.getElementById("demo").innerHTML = "Which allergy does your child have? Select one;";
+                        // 
+                        document.getElementById("demo").innerHTML +="<h4> Allergy:</h4>";
+                        document.getElementById("demo").innerHTML +="<input type='radio' name='allergy' value='Rashes' id='rashes'>"+"Rashes";
+                        document.getElementById("demo").innerHTML +="<input type='radio' name='allergy' value='Citrus' id='citrus'>"+"Citrus";
+                        document.getElementById("demo").innerHTML +="<input type='radio' name='allergy' value='Itchy Mouth' id='itchy_mouth'>"+"Itchy Mouth";
+                        document.getElementById("demo").innerHTML +='\xa0\xa0'+"<button type='button' onclick='displayRadioValue()'>Submit</button>";
+                        document.getElementById("demo").innerHTML +='<div id="result"></div>';
+                    }
+                    else if(x.includes("no")){
+                        document.getElementById("demo").innerHTML = "Great! I can also help you choose juice depending on weather Condition";
+                        document.getElementById("demo").innerHTML = "How is your weather?";
+                        document.getElementById("demo").innerHTML +="<input type='radio' name='weather' value='rainy' id='rainy'>"+"Rainy and Cold";
+                        document.getElementById("demo").innerHTML +="<input type='radio' name='weather' value='sunny' id='sunny'>"+"Sunny and Hot";
+                        document.getElementById("demo").innerHTML +="<input type='radio' name='weather' value='windy' id='windy'>"+"Just Windy";
+                        document.getElementById("demo").innerHTML +='\xa0\xa0'+"<button type='button' onclick='weather()'>Submit</button>";
+                        document.getElementById("demo").innerHTML +='<div id="cweather"></div>';
+                    }
+                    else if(x.includes("bye")){
+                        document.getElementById("demo").innerHTML = "GoodBye!";
+                    }
+                    else if(x!=""){
+                        document.getElementById("demo").innerHTML = "Hi"+'\xa0\xa0'+x +"!"+"\xa0\xa0"+ "how may I help you?";
+                    } 
+                    else{
+                        document.getElementById("demo").innerHTML = error;
+                    }
+                    
+                } 
+                
+            </script> 
+        </div>
+
+        <div id="overlay"></div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+/* modal */
+.modal {
+    position: fixed;
+    top: 5%;
+    left: 70%;
+    transform: translate(0,0) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    height: 40%;
+    z-index: 10;
+    background-color: white;
+    margin-right: 2%;
+    max-width: 48%;
+    height: 70%;
+}
+.modal.active {
+    transform: translate(0,0) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+}
+
+.modal-header .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#hello{
+    max-width: 50px;
+    height: 50px;
+}
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 30px;
+    margin-bottom: 35%;
+    font-weight: bold;
+    color: #fff;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/*chat input */
+#input{
+    width: 350px;
+    height: 60px;
+    margin-top: 2%;
+}
+.submit-btn{
+    background-color: #16a085;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-left: 80%;
+    width: 20%;
+}
+#bot{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    animation: typing 1s linear infinite alternate;
+    position: relative;
+    margin: 0 auto;
+}
