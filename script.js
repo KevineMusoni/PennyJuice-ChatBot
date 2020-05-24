@@ -35,7 +35,7 @@ function closeModal(modal) {
   overlay.classList.remove('active')
 }
 
-// recommendations
+// Allergy recommendations
 function displayRadioValue() { 
   var ele = document.getElementsByName('allergy'); 
     
@@ -57,7 +57,7 @@ function displayRadioValue() {
       }
 } 
 }
-// weather
+// weather condition recommendation
 
 function weather() { 
   var w = document.getElementsByName('weather'); 
